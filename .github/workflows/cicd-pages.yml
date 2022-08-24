@@ -41,21 +41,19 @@ jobs:
           script: |
             const fs = require('fs')
             
-            const comments = await github.paginate(github.rest.issues.listComments,
-              { owner: 'gh-event-demos', repo: 'random-name-picker', issue_number: 1 }
+            await github.paginate(github.rest.issues.listComments,
+              { owner: 'gh-event-demos', repo: 'random-name-picker', issue_number: 1 },
+              (response) => response.data.map((issuecomment) => issuecomment.user.login)
             )
-            
-            commenters = [];
-            for (const comment of comments) {
-              commenters.push(comment.user.login)
-            }
-
-            fs.writeFile('dist/assets/names.txt', commenters, err => {
-              if (err) {
-                console.error(err);
-              }
-              // file written successfully
-            })
+            .then((commenters) => {
+              const content = commenters.join('\n')
+              fs.writeFile('dist/assets/names.txt', content, err => {
+                if (err) {
+                  console.error(err);
+                }
+                // file written successfully
+              });
+            }); 
             
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
