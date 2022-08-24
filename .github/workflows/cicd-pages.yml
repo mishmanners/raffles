@@ -42,8 +42,8 @@ jobs:
             const fs = require('fs')
             
             const comments = await github.paginate(github.rest.issues.listComments,
-              { owner: 'gh-event-demos', repo: 'random-name-picker', issue_number: 1 },
-            })
+              { owner: 'gh-event-demos', repo: 'random-name-picker', issue_number: 1 }
+            )
             
             commenters = [];
             for (const comment of comments) {
