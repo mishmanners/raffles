@@ -36,7 +36,7 @@ jobs:
         run: yarn build
         
       - name: Pre-populate the list of names from an Issue
-        uses: actions/github-script@v5.1.1
+        uses: actions/github-script@v6
         with:
           script: |
             //const fs = require('fs')
