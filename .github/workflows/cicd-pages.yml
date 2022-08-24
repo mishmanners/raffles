@@ -37,20 +37,16 @@ jobs:
         
       - name: Pre-populate the list of names from an Issue
         uses: actions/github-script@v5.1.1
-        env:
-          ISSUE_ID: 1
         with:
           script: |
             const fs = require('fs')
-            const { ISSUE_ID } = process.env
             
-            github.paginate(github.rest.issues.listComments, {
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ${ISSUE_ID},
+            github.paginate("GET /repos/{owner}/{repo}/issues/{issue_number}/comments",
+              { owner: context.repo.owner, repo: context.repo.repo, issue_number: 1},
+              (response) => response.data.map((issuecomment) => issuecomment.user.login)
             })
-            .then((issues) => {
-              const content = issues.map(issue => return issue.user.login).join('\n')
+            .then((commenters) => {
+              const content = commenters.join('\n')
               fs.writeFile('dist/assets/names.txt', content, err => {
                 if (err) {
                   console.error(err);
