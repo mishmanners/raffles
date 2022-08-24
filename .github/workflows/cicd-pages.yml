@@ -46,7 +46,8 @@ jobs:
               (response) => response.data.map((issuecomment) => issuecomment.user.login)
             )
             .then((commenters) => {
-              const content = commenters.join('\n')
+              const unique = Array.from(new Set(commenters)) 
+              const content = unique.join('\n')
               fs.writeFile('dist/names.txt', content, err => {
                 if (err) {
                   console.error(err);
