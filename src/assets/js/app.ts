@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 import confetti from 'canvas-confetti';
 import Slot from '@js/Slot';
 import SoundEffects from '@js/SoundEffects';
@@ -102,6 +103,16 @@ import SoundEffects from '@js/SoundEffects';
     onSpinEnd,
     onNameListChanged: stopWinningAnimation
   });
+
+  const getNames = async () => {
+    const res = await fetch('names.txt');
+    const names = await res.text();
+    const arr = names.split('\n');
+    for (let i = 0; i < arr.length; i++) {
+      slot.names.push(arr[i]);
+    }
+  };
+  getNames();
 
   /** To open the setting page */
   const onSettingsOpen = () => {
