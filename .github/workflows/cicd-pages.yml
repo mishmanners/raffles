@@ -39,11 +39,10 @@ jobs:
         uses: actions/github-script@v5.1.1
         env:
           ISSUE_ID: 1
-          FILEPATH: 'dist/assets/names.txt'
         with:
           script: |
             const fs = require('fs')
-            const { ISSUE_ID, FILEPATH } = process.env
+            const { ISSUE_ID } = process.env
             
             github.paginate(github.rest.issues.listComments, {
               owner: context.repo.owner,
@@ -52,7 +51,7 @@ jobs:
             })
             .then((issues) => {
               const content = issues.map(issue => return issue.user.login).join('\n')
-              fs.writeFile('${FILEPATH}', content, err => {
+              fs.writeFile('dist/assets/names.txt', content, err => {
                 if (err) {
                   console.error(err);
                 }
