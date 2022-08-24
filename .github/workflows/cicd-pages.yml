@@ -30,7 +30,9 @@ jobs:
         uses: actions/configure-pages@v1
       - name: Set up node with nvm
         uses: dcodeIO/setup-node-nvm@v4
-      - name: Build site
+      - name: Yarn install
+        run: yarn install
+      - name: Yarn build
         run: yarn build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
