@@ -110,3 +110,16 @@ a {
 .align--right {
   text-align: right;
 }
+
+.main-title {
+  font-size: 8em;
+  text-shadow: 0 0 10px #444, 0 0 50px #ffa, 0 0 60px #afe;
+  margin-bottom: 0.5em;
+}
+
+.gh-logo {
+  filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(193deg)
+    brightness(500%) contrast(119%);
+  width: 0.8em;
+  margin-right: 0.4em;
+}
