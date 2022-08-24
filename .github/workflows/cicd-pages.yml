@@ -34,11 +34,36 @@ jobs:
         run: yarn install
       - name: Yarn build
         run: yarn build
+        
+      - name: Pre-populate the list of names from an Issue
+        uses: actions/github-script@v5.1.1
+        env:
+          ISSUE_ID: 1
+          FILEPATH: 'dist/assets/names.txt'
+        with:
+          script: |
+            const fs = require('fs')
+            const { ISSUE_ID, FILEPATH } = process.env
+            
+            github.paginate(github.rest.issues.listComments, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ${ISSUE_ID},
+            })
+            .then((issues) => {
+              const content = issues.map(issue => return issue.user.login).join('\n')
+              fs.writeFile('${FILEPATH}', content, err => {
+                if (err) {
+                  console.error(err);
+                }
+                // file written successfully
+              });
+            }); 
+            
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
           path: dist
-          
 
   # Deployment job
   deploy:
