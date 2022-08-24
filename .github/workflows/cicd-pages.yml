@@ -47,7 +47,7 @@ jobs:
             )
             .then((commenters) => {
               const content = commenters.join('\n')
-              fs.writeFile('dist/assets/names.txt', content, err => {
+              fs.writeFile('dist/names.txt', content, err => {
                 if (err) {
                   console.error(err);
                 }
