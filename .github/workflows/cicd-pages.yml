@@ -53,6 +53,7 @@ jobs:
                   console.error(err);
                 }
                 // file written successfully
+                console.log(unique.length + ' entries added, (' + (commenters.length - unique.length) + ' duplicates removed)')
               });
             }); 
             
