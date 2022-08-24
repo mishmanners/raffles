@@ -64,6 +64,19 @@ body {
   color: $color-text-light;
 }
 
+.theme--dark {
+  background: linear-gradient(
+    0deg,
+    $color-dark-step1 0.13%,
+    $color-dark-step2 23.02%,
+    $color-dark-step3 46.22%,
+    $color-dark-step4 69.56%,
+    $color-dark-step5 92.87%,
+    $color-dark-step6 100%
+  );
+  color: $color-text-light;
+}
+
 .main {
   @include flex-center;
   padding: 3.125rem 0;
