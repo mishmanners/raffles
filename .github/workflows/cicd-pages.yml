@@ -39,20 +39,20 @@ jobs:
         uses: actions/github-script@v5.1.1
         with:
           script: |
-            const fs = require('fs')
+            //const fs = require('fs')
             
             github.paginate("GET /repos/{owner}/{repo}/issues/{issue_number}/comments",
-              { owner: context.repo.owner, repo: context.repo.repo, issue_number: 1},
+              { owner: context.repo.owner, repo: context.repo.repo, issue_number: 1 },
               (response) => response.data.map((issuecomment) => issuecomment.user.login)
             })
             .then((commenters) => {
               const content = commenters.join('\n')
-              fs.writeFile('dist/assets/names.txt', content, err => {
-                if (err) {
-                  console.error(err);
-                }
+              //fs.writeFile('dist/assets/names.txt', content, err => {
+              //  if (err) {
+              //    console.error(err);
+              //  }
                 // file written successfully
-              });
+              //});
             }); 
             
       - name: Upload artifact
