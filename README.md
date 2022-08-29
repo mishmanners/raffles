@@ -12,6 +12,9 @@
 
 ---
 
+Below is the original README:
+
+---
 
 <h1 align="center">Random Name Picker for Lucky Draw</h1>
 <p align="center">
