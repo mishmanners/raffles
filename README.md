@@ -1,6 +1,18 @@
 <p align="center">
     <img alt="Random Name Picker for Lucky Draw" src="./logo.svg" width="100" />
 </p>
+
+# Random Name Picker for GitHub prize draws!
+
+:pray: First, huge shout-out to [@icelam](https://github.com/icelam) for a great and simple name picker we could fork and use for the GitHub booth!
+
+:rocket: This site is deployed to GitHub Pages using GitHub Actions. The Actions workflow pulls entrants from commenters of a GitHub Issue.
+
+:ticket: To enter the draw (if there is one), add a comment to [This Issue](/GH-Event-Demos/random-name-picker/issues/1)
+
+---
+
+
 <h1 align="center">Random Name Picker for Lucky Draw</h1>
 <p align="center">
     Simple HTML5 random name picker for picking lucky draw winner using Web Animations and AudioContext API
