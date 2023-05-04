@@ -8,4 +8,4 @@
 
 :rocket: This site is deployed to GitHub Pages using GitHub Actions. The Actions workflow pulls entrants from commenters of a GitHub Issue.
 
-:sparkles: To enter the draw, donate to (St Jude PLAY LIVE](https://donate.tiltify.com/@mishmanners/mishmannersplaylive23) add a comment to [This Issue]().
+:sparkles: To enter the draw, donate to [St Jude PLAY LIVE](https://donate.tiltify.com/@mishmanners/mishmannersplaylive23) add a comment to [This Issue]().
