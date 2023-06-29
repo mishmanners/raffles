@@ -50,7 +50,7 @@ jobs:
             const fs = require('fs')
             
             await github.paginate(github.rest.issues.listComments,
-              { owner: 'mishmanners', repo: 'stjude23-raffle', issue_number: ${{ env.ISSUE_ID }} },
+              { owner: 'mishmanners', repo: 'raffles', issue_number: ${{ env.ISSUE_ID }} },
               (response) => response.data.map((issuecomment) => issuecomment.user.login)
             )
             .then((commenters) => {
